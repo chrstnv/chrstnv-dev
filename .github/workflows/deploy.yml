@@ -1,4 +1,4 @@
-name: 🚀 build & deploy
+name: 🚀 Build & Deploy
 
 on:
   push:
@@ -11,18 +11,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: 🐧 install node.js
+      - name: 🐧 Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
 
-      - name: 📦 install npm dependencies
+      - name: 📦 Install npm dependencies
         run: npm i
 
-      - name: 🛠 run build task
+      - name: 🛠 Run build task
         run: npm run build
         
-      - name: ⛅ deploy to server
+      - name: ⛅ Deploy to server
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
